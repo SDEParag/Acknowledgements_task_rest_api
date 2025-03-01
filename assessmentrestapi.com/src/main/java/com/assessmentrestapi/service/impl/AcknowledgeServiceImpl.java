@@ -26,7 +26,7 @@ public class AcknowledgeServiceImpl implements AcknowledgeService {
     @Autowired
     private AcknowledgeRepository acknowledgeRepository;
 
-    // ✅ DSA Used: HashMap for faster lookup (O(1) time complexity)
+ 
     private static final Map<String, String> MESSAGE_TEMPLATES = new HashMap<>();
 
     static {
@@ -72,7 +72,7 @@ public class AcknowledgeServiceImpl implements AcknowledgeService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy hh:mm a z").withZone(ZoneId.of("Asia/Kolkata"));
         String formattedTimestamp = LocalDateTime.now().format(formatter);
 
-        // ✅ Fetch message from HashMap (O(1) lookup)
+     
         String template = MESSAGE_TEMPLATES.getOrDefault(clientName.toLowerCase(), "Acknowledgment message not found for %s");
         return String.format(template, userName, formattedTimestamp);
     }
