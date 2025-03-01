@@ -27,28 +27,28 @@ public class AcknowledgeController {
     @Autowired
     private AcknowledgeService acknowledgeService;
 
-    // ✅ Save Acknowledgement
+   
     @PostMapping
     public ResponseEntity<Acknowledge> saveAcknowledgement(@RequestBody AcknowledgeDTO dto) {
         logger.info("Saving acknowledgement for user: {}", dto.getUserName());
         return ResponseEntity.ok(acknowledgeService.saveAcknowledgement(dto));
     }
 
-    // ✅ Get Acknowledgement by User
+    
     @GetMapping("/{userName}")
     public ResponseEntity<List<Acknowledge>> getAcknowledgementsByUser(@PathVariable String userName) {
         logger.info("Fetching acknowledgements for user: {}", userName);
         return ResponseEntity.ok(acknowledgeService.getAcknowledgementsByUser(userName));
     }
 
-    // ✅ Update Acknowledgement by ID
+    
     @PutMapping("/{id}")
     public ResponseEntity<Acknowledge> updateAcknowledgement(@PathVariable Long id, @RequestBody AcknowledgeDTO dto) {
         logger.info("Updating acknowledgement ID: {}", id);
         return ResponseEntity.ok(acknowledgeService.updateAcknowledgement(id, dto));
     }
 
-    // ✅ Delete Acknowledgement by ID
+   
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAcknowledgement(@PathVariable Long id) {
         logger.info("Deleting acknowledgement ID: {}", id);
