@@ -14,7 +14,7 @@ public class AppExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(AppExceptionHandler.class);
 
-    // ✅ Using HashMap for error messages (DSA - Hashing)
+  
     private static final Map<Class<? extends Exception>, String> ERROR_MESSAGES = new HashMap<>();
 
     static {
@@ -22,14 +22,14 @@ public class AppExceptionHandler {
         ERROR_MESSAGES.put(Exception.class, "An unexpected error occurred. Please try again.");
     }
 
-    // ✅ Handle Acknowledge Not Found Exception
+    
     @ExceptionHandler(AcknowledgeNotFoundException.class)
     public ResponseEntity<String> handleAcknowledgeNotFound(AcknowledgeNotFoundException ex) {
         logger.error("Acknowledgement Not Found: {}", ex.getMessage());
         return new ResponseEntity<>(ERROR_MESSAGES.getOrDefault(AcknowledgeNotFoundException.class, ex.getMessage()), HttpStatus.NOT_FOUND);
     }
 
-    // ✅ Handle Generic Exception
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGenericException(Exception ex) {
         logger.error("Unexpected Error: {}", ex.getMessage());
