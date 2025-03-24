@@ -48,18 +48,18 @@ This Spring Boot application provides a REST API for managing user acknowledgeme
 # Database Configuration
 
  ```http
-# ===============================
-# Database Configuration (MySQL)
-# ===============================
+===============================
+Database Configuration (MySQL)
+===============================
 spring.datasource.url=jdbc:mysql://localhost:3306/acknowledgement_db
 spring.datasource.username=******
 spring.datasource.password=******
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 ```http
-# ===============================
-# Hibernate Configuration
-# ===============================
+===============================
+Hibernate Configuration
+===============================
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.database-platform=g.hibernate.dialect.MySQL8Dialect
